@@ -1,0 +1,28 @@
+@startuml
+skinparam monochrome true
+skinparam componentStyle rectangle
+
+actor Usuario
+actor Script
+actor Monitor
+
+Usuario --> HTTP
+Script --> HTTP
+Monitor --> HTTP
+
+HTTP --> FastAPI
+
+component FastAPI {
+  component Middleware
+  component Endpoints
+  component "Jinja2 Templates" as Jinja2
+
+  Middleware --> Endpoints
+  Endpoints --> Jinja2
+}
+
+Middleware : - Logs\n- Latencia\n- Status code\n- Request ID
+Endpoints : /health\n/metrics\n/debug\n/
+Jinja2 : Dashboard HTML
+
+@enduml

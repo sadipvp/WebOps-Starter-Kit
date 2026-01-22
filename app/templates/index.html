@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Service Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Service Dashboard</h1>
+
+      <div class="card">
+        <p><strong>Servicio:</strong> {{ service }}</p>
+        <p><strong>Estado:</strong> {{ status }}</p>
+        <p><strong>Uptime (s):</strong> {{ uptime }}</p>
+        <p><strong>Hora (UTC):</strong> {{ now }}</p>
+        <p><strong>Versión:</strong> {{ version }}</p>
+      </div>
+
+      <div class="card">
+        <h2>Monitoreo</h2>
+        <ul>
+          <li><a href="/health">/health</a></li>
+          <li><a href="/metrics">/metrics</a></li>
+          <li><a href="/debug/headers">/debug/headers</a></li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>
